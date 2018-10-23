@@ -94,4 +94,8 @@ body{
   font-size: 10px;
   border-radius: 10px;
   overflow: hidden;
+  margin: 0px 5px;
+}
+.background {
+  font-size: 11px;
 }

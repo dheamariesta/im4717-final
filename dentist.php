@@ -18,11 +18,71 @@
           <a href="#">Dentist</a>
         </div>
         <div class="col-4">
-          <a href="#">Reschedule</a>
+          <a href="reschedule.php">Reschedule</a>
         </div>
 
       </div>
-      <div class="doctor-card">
+
+      <?php
+
+      @ $db = new mysqli('localhost', 'f31im', 'f31im', 'f31im');
+
+      $query = "SELECT * from dentist;";
+      $result = $db->query($query);
+
+      if ($result) {
+        if ($result->num_rows > 0){
+          while($row = $result->fetch_assoc()) {
+            echo '<form action="booking.php" method="GET" >';
+            echo '<div class="doctor-card">';
+            echo '<div class="col-1">';
+            echo '';
+            echo '</div>';
+            echo '<div class="doctor">';
+            echo '<img src='.$row["file_path"].' class=""/>';
+            echo '</div>';
+            echo '<div class="doctor-description">';
+            echo '<h4>Dr. '.$row["name"].'</h4>';
+            echo '<input type="hidden" name="name" value="';
+            echo $row["name"];
+            echo '" />';
+            echo '<input type="hidden" name="id" value="';
+            echo $row["id"];
+            echo '" />';
+            echo '<p>';
+            echo 'Experience: '.$row["experience"].' years';
+            echo '</p>';
+            echo '<p class="background">';
+            echo $row["background"];
+            echo '</p>';
+            echo '<p>';
+
+            $sql = "SELECT tag.tag_name from tag inner join dentist_tag on dentist_tag.tag_id=tag.id where dentist_tag.dentist_id='".$row["id"]."';";
+            $labels = $db -> query($sql);
+            if ($labels -> num_rows > 0){
+              while($label = $labels->fetch_assoc()){
+                echo '<label class="specialisation">'.$label["tag_name"].'</label>';
+              }
+            }
+
+            echo '</p>';
+            echo '</div>';
+            echo '<div class="col-3">';
+            echo '<button type="submit" class="book-now-button">Book Doctor</button>';
+            echo '</div>';
+            echo '</div>';
+            echo'</form>';
+
+          }
+        }
+      } else {
+          echo "An error has occurred.  Dentists not loaded.";
+      }
+
+      $db->close();
+
+       ?>
+      <!-- <div class="doctor-card">
         <div class="col-1">
 
         </div>
@@ -82,7 +142,7 @@
         <div class="col-3">
           <button class="book-now-button">Book Doctor</button>
         </div>
-      </div>
+      </div> -->
     </div>
 
 
