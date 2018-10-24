@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway:400,700');
+body{
+  font-family: 'Open Sans';
+}
+
+.row {
+  width: 100%;
+  display: flex;
+}
+.container{
+  margin-right: 10%;
+  margin-left: 10%;
+}
+#logo{
+  height: 50px;
+  margin: 5px auto;
+}
+.col-1{
+  width: 8.33%;
+}
+.col-3{
+  width: 25%;
+}
+.col-4{
+  width: 33%;
+}
+.col-9{
+  width: 75%;
+}
+.col-6{
+  width: 50%;
+}
+.nav{
+
+  background-color: #f5f5f5;
+  padding: 15px 0px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+}
+.nav a{
+  font-family: Raleway;
+  color: black;
+  text-decoration: none;
+}
+.nav a:hover{
+  text-decoration: underline;
+}
+#current-page a{
+  color: #0dcdc0;
+}
+.breadcrumbs{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+.breadcrumbs a{
+  text-decoration: none;
+  color: black;
+}
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+.form-header{
+  font-family: 'Raleway';
+  text-decoration: underline;
+}
+.text {
+  font-family: 'Open Sans', sans-serif;
+}
+.input-text{
+  width: 50%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 16px;
+}
+.input-label{
+  text-align: right;
+  padding: 10px 50px;
+  font-weight: bold;
+}
+.form-row{
+  margin: 20px 0px;
+}
+.form-select select {
+  /* background: black; */
+  /* color: b; */
+  border: none;
+  font-size: 16px;
+  height: 40px;
+  padding: 10px;
+  /* If you add too much padding here, the options won't show in IE */
+  width: 100%;
+}
+.form-select select:focus, .form-select select:active{
+  outline: none;
+}
+.form-select {
+  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+  height: 40px;
+  overflow: hidden;
+  width: 50%;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+input:focus{
+  outline: 2px solid #0dcdc0;
+}
+td {
+  padding: 10px;
+}
+table, tr, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.daterangepicker .drp-calendar{
+  max-width: 500px;
+}
+.book-now-button{
+  padding: 10px;
+  font-size: 14px;
+  font-family: 'Arial';
+  background-color: #0dcdc0;
+  border-radius: 10px;
+  color: white;
+  border: 0px;
+  width: 200px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.book-now-button:hover{
+  background-color: #bbb;
+  color: white;
+}
+#booking-form {
+  margin-bottom: 50px;
+}
+
+#reschedule-form2 {
+  display: none;
+}
