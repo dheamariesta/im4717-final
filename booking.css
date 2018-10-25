@@ -66,6 +66,9 @@ body{
   font-family: 'Raleway';
   text-decoration: underline;
 }
+.text {
+  font-family: 'Open Sans', sans-serif;
+}
 .input-text{
   width: 50%;
   padding: 10px;
@@ -125,6 +128,7 @@ table, tr, td {
   border: 0px;
   width: 200px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .book-now-button:hover{
   background-color: #bbb;
@@ -132,4 +136,8 @@ table, tr, td {
 }
 #booking-form {
   margin-bottom: 50px;
+}
+
+#reschedule-form2 {
+  display: none;
 }

@@ -10,6 +10,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script src="booking.js"></script>
     <link type="text/css" rel="stylesheet" href="./booking.css" />
+    <!--<script type="text/javascript">
+          datevalidate();
+          timeslotvalidate();
+    </script>-->
   </head>
   <body>
     <div class="container">
@@ -21,10 +25,10 @@
           <a href="#">Home</a>
         </div>
         <div class="col-4" id="current-page">
-          <a href="#">Dentist</a>
+          <a href="dentist.php">Dentist</a>
         </div>
         <div class="col-4">
-          <a href="#">Reschedule</a>
+          <a href="reschedule.php">Reschedule</a>
         </div>
 
       </div>
@@ -34,13 +38,13 @@
       <div class="row">
         <h3 class="form-header">Patient Registration</h3>
       </div>
-      <form id="booking-form" action="post_booking.php" method="POST">
+      <form id="booking-form" action="post_booking.php" method="POST" onsubmit="return timeslotvalidate()">
         <div class="row form-row">
           <div class="col-1 input-label">
             Name:
           </div>
           <div class="col-6">
-            <input type="text" name="name" class="input-text" required/>
+            <input type="text" name="name" class="input-text" id="name" onblur="namevalidate()" required/>
           </div>
         </div>
         <div class="row form-row">
@@ -48,7 +52,7 @@
             Email:
           </div>
           <div class="col-6">
-            <input type="email" name="email" class="input-text" required/>
+            <input type="email" name="email" class="input-text" id="email" onblur="emailvalidate()" required/>
           </div>
         </div>
         <div class="row form-row">
@@ -56,7 +60,7 @@
             Contact No.:
           </div>
           <div class="col-6">
-            <input type="text" name="phone" class="input-text" required/>
+            <input type="text" name="phone" class="input-text" id="contact" onblur="contactvalidate()" required/>
           </div>
         </div>
         <div class="row form-row">
@@ -108,7 +112,7 @@
         <div class="row form-row">
           <div class="col-6 input-label">
 
-            <input type="text" name="appt-date" value="" class="input-text" onchange="getDate();"/>
+            <input type="text" name="appt-date" id="datepick" value="" class="input-text" onchange="getDate();" onblur="datevalidate()"/>
 
             <script>
             $(function() {
@@ -160,6 +164,7 @@
           </div>
         </div>
         <button type="submit" class="book-now-button">Book Appointment</button>
+
       </form>
 
 

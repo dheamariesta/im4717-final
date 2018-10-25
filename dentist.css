@@ -82,6 +82,7 @@ body{
   border: 0px;
   width: 200px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .book-now-button:hover{
   background-color: #bbb;

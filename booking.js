@@ -57,3 +57,76 @@ function getDate(){
 $( document ).ready(function() {
     getDate();
 });
+
+function namevalidate() {
+  var name = document.getElementById('name').value;
+  var letterNumber = /^[0-9a-zA-Z\s]+$/;
+  if (name.match(letterNumber)) {
+    return true;
+  }
+  else {
+    alert("Please enter your name")
+    return false;
+  }
+}
+
+function emailvalidate() {
+  var email = document.getElementById('email').value;
+  var add = email.indexOf('@');
+  if ( add < 0 ) {
+    alert("Please include a '@' in your email")
+    return false;
+  } else {
+    var split = email.split("@");
+    var domain = split[1];
+    var dot = domain.indexOf('.');
+    if(dot < 0) {
+      alert("Please include address extensions")
+      return false;
+    }
+    var domainextension = domain.split(".");
+    if (domainextension[domainextension.length - 1].length < 2 || domainextension[domainextension.length - 1].length > 3) {
+      alert("Your last extension must include 2 to 3 characters")
+      return false;
+    }
+  }
+}
+
+function contactvalidate() {
+  var contact = document.getElementById('contact').value;
+  if (contact.length != 8 ) {
+    alert("Please enter a valid contact number")
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function timeslotvalidate() {
+  /*if ($("input[type=radio]:checked").length < 0) {
+    alert("Please choose a time slot");
+    return false;
+  }*/
+  var radios = document.getElementsByName("time-slot");
+  var checked = false;
+
+     for (var i = 0, len = radios.length; i < len; i++) {
+          if (radios[i].checked) {
+              checked = true;
+          }
+     }
+     if (!checked) {
+       alert("Please choose a time slot")
+       return false;
+     }
+}
+
+function datevalidate() {
+  var selectedDate = document.querySelector('input[name="appt-date"]').value;
+  var date = new Date(selectedDate);
+  var now = new Date();
+  if (date < now) {
+    alert("Date must be in the future")
+    return false;
+  }
+}
