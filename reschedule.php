@@ -18,7 +18,7 @@
       </div>
       <div class="row nav">
         <div class="col-4">
-          <a href="#">Home</a>
+          <a href="index.html">Home</a>
         </div>
         <div class="col-4" >
           <a href="dentist.php">Dentist</a>
