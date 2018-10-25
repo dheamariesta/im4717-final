@@ -10,10 +10,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script src="booking.js"></script>
     <link type="text/css" rel="stylesheet" href="./booking.css" />
-    <!--<script type="text/javascript">
-          datevalidate();
-          timeslotvalidate();
-    </script>-->
   </head>
   <body>
     <div class="container">
@@ -24,27 +20,27 @@
         <div class="col-4">
           <a href="#">Home</a>
         </div>
-        <div class="col-4" id="current-page">
+        <div class="col-4" >
           <a href="dentist.php">Dentist</a>
         </div>
-        <div class="col-4">
-          <a href="reschedule.php">Reschedule</a>
+        <div class="col-4" id="current-page">
+          <a href="reschedule.php" >Reschedule</a>
         </div>
 
       </div>
-      <div class="row breadcrumbs">
+      <!-- <div class="row breadcrumbs">
         <i class="fas fa-chevron-left"></i> &nbsp; <a href="dentist.php">Dentist</a>
-      </div>
-      <div class="row">
-        <h3 class="form-header">Patient Registration</h3>
-      </div>
-      <form id="booking-form" action="post_booking.php" method="POST" onsubmit="return timeslotvalidate()">
+      </div> -->
+      <form id="reschedule-form" method="post">
+        <div class="row">
+          <h3 class="form-header">Step 1</h3>
+        </div>
         <div class="row form-row">
           <div class="col-1 input-label">
-            Name:
+            Booking ID:
           </div>
           <div class="col-6">
-            <input type="text" name="name" class="input-text" id="name" onblur="namevalidate()" required/>
+            <input type="text" name="id" class="input-text" required/>
           </div>
         </div>
         <div class="row form-row">
@@ -52,59 +48,77 @@
             Email:
           </div>
           <div class="col-6">
-            <input type="email" name="email" class="input-text" id="email" onblur="emailvalidate()" required/>
+            <input type="email" name="email" class="input-text" required/>
           </div>
         </div>
-        <div class="row form-row">
-          <div class="col-1 input-label">
-            Contact No.:
-          </div>
-          <div class="col-6">
-            <input type="text" name="phone" class="input-text" id="contact" onblur="contactvalidate()" required/>
-          </div>
-        </div>
-        <div class="row form-row">
-          <div class="col-1 input-label">
-            Select Service:
-          </div>
-          <div class="col-6">
-            <div class="form-select">
-              <select name="service">
-                <option>
-                  Dental Implants
-                </option>
-                <option>
-                  Braces
-                </option>
-                <option>
-                  Crowns and Bridges
-                </option>
-                <option>
-                  Prevention
-                </option>
-                <option>
-                  Teeth Whitening
-                </option>
-                <option>
-                  Cosmetic Dentistry
-                </option>
-              </select>
-            </div>
+        <button class="book-now-button" type="Submit">Get Booking</button>
+      </form><br/>
 
-          </div>
-        </div>
+      <?php
+      if (isset($_POST['id'])) {
+        $booking_id = $_POST['id'];
+      }
+      if (isset($_POST['email'])) {
+        $email = $_POST['email'];
+      }
+      @ $db = new mysqli('localhost', 'f31im', 'f31im', 'f31im');
+
+      $query = "SELECT * from booking WHERE id = '".$booking_id."' AND email = '".$email."';";
+      $result = $db->query($query);
+
+      if ($result) {
+        if ($result->num_rows > 0){
+          while($row = $result->fetch_assoc()) {
+            $dentist_id = $row["dentist_id"];
+            $name = $row["name"];
+            ?>
+            <input type="hidden" id="doctor-id" name="doctor-id" value="<?php echo ($dentist_id); ?>"/>
+            <?php
+            echo '';
+            echo '<div class="row">';
+            echo '<h3 class="form-header">Step 2</h3>';
+            echo '</div>';
+            echo '<div class="row form-row">';
+            echo '<div class="col-1 input-label">';
+            echo 'Customer Name: ';
+            echo '</div>';
+            echo '<div class="col-6 input-label" style="text-align:left;">';
+            echo $row["name"];
+            echo '</div>';
+            echo '</div>';
+
+            echo '<div class="row form-row">';
+            echo '<div class="col-1 input-label">';
+            echo 'Appointment Date: ';
+            echo '</div>';
+            echo '<div class="col-6 input-label" style="text-align:left;">';
+            echo $row["appt_date"];
+            echo '<input type="hidden" id="apptdate" name="apptdate" value="'.$row["appt_date"].'"/>';
+            echo '</div>';
+            echo '</div>';
+
+            echo '<div class="row form-row">';
+            echo '<div class="col-1 input-label">';
+            echo 'Appointment Time: ';
+            echo '</div>';
+            echo '<div class="col-6 input-label" style="text-align:left;">';
+            echo $row["appt_time"];
+            echo '<input type="hidden" id="appttime" name="appttime" value="'.$row["appt_time"].'"/>';
+            echo '</div>';
+            echo '</div>';
+          }?>
+          <style type="text/css">#reschedule-form2{
+            display:block !important;
+          }</style>
+      <?php
+        }
+      }
+      ?>
+
+      <form id="reschedule-form2" method="post" action="post_reschedule.php" onsubmit="return timeslotvalidate()">
+        <input type="hidden" id="customername" name="customername" value="<?php echo ($name); ?>"/>
         <div class="row">
-          <h3 class="form-header">Chosen Dentist</h3>
-        </div>
-        <div class="row form-row">
-          <div class="col-1 input-label">
-            Name:
-          </div>
-          <div class="col-6 input-label" style="text-align: left;">
-            <?php echo $_GET["name"]; ?>
-            <input type="hidden" id="doctor-id" name="doctor-id" value="<?php echo ($_GET["id"]); ?>"/>
-          </div>
-
+          <h3 class="form-header">Step 3</h3>
         </div>
         <div class="row">
           <h3 class="form-header">Choose Date and Time</h3>
@@ -163,9 +177,10 @@
             </table>
           </div>
         </div>
-        <button type="submit" class="book-now-button">Book Appointment</button>
+        <button type="submit" class="book-now-button">Reschedule</button>
+      </form><br/>
 
-      </form>
+
 
 
     </div>
