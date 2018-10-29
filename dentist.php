@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="logo-16.png"/>
   </head>
   <body>
-    <div class="container">
+    <div>
       <div class="row">
         <img src="logo.png" id="logo" />
       </div>
