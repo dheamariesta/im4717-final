@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway:400,700');
+body{
+  font-family: 'Open Sans';
+}
+
+.row {
+  width: 100%;
+  display: flex;
+}
+.container{
+
+}
+#logo{
+  height: 50px;
+  margin: 5px auto;
+}
+.col-1{
+  width: 8.33%;
+}
+.col-3{
+  width: 25%;
+}
+.col-4{
+  width: 33%;
+}
+.col-9{
+  width: 75%;
+}
+.nav{
+
+  background-color: #f5f5f5;
+  padding: 15px 0px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+}
+.nav a{
+  font-family: Raleway;
+  color: black;
+  text-decoration: none;
+}
+.nav a:hover{
+  text-decoration: underline;
+}
+#current-page a{
+  color: #0dcdc0;
+}
+.doctor{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  /* height: auto; */
+  overflow: hidden;
+}
+.doctor img{
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+.doctor-card{
+  margin: 50px 50px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border: solid 2px #eee;
+}
+.doctor-description{
+  padding: 0px 50px;
+  width: 50%;
+}
+
+.book-now-button{
+  padding: 10px;
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+  background-color: #0dcdc0;
+  border-radius: 10px;
+  color: white;
+  border: 0px;
+  width: 200px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.book-now-button:hover{
+  background-color: #bbb;
+  color: white;
+}
+.specialisation{
+  background-color: #eee;
+  padding: 5px 20px;
+  /* width: 200px; */
+  font-size: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0px 5px;
+}
+.background {
+  font-size: 14px;
+}
