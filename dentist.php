@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Dentist</title>
     <link type="text/css" rel="stylesheet" href="./dentist.css" />
+    <link rel="icon" type="image/png" href="logo-16.png"/>
   </head>
   <body>
     <div class="container">

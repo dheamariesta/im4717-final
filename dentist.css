@@ -8,8 +8,7 @@ body{
   display: flex;
 }
 .container{
-  margin-right: 10%;
-  margin-left: 10%;
+
 }
 #logo{
   height: 50px;
@@ -75,7 +74,7 @@ body{
 .book-now-button{
   padding: 10px;
   font-size: 14px;
-  font-family: 'Arial';
+  font-family: 'Raleway', sans-serif;
   background-color: #0dcdc0;
   border-radius: 10px;
   color: white;
@@ -92,11 +91,11 @@ body{
   background-color: #eee;
   padding: 5px 20px;
   /* width: 200px; */
-  font-size: 10px;
+  font-size: 12px;
   border-radius: 10px;
   overflow: hidden;
   margin: 0px 5px;
 }
 .background {
-  font-size: 11px;
+  font-size: 14px;
 }

@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script src="booking.js"></script>
     <link type="text/css" rel="stylesheet" href="./booking.css" />
+    <link rel="icon" type="image/png" href="logo-16.png"/>
     <!--<script type="text/javascript">
           datevalidate();
           timeslotvalidate();

@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script src="booking.js"></script>
     <link type="text/css" rel="stylesheet" href="./booking.css" />
+    <link rel="icon" type="image/png" href="logo-16.png"/>
   </head>
   <body>
     <div class="container">
@@ -45,7 +46,7 @@
         </div>
         <div class="row form-row">
           <div class="col-1 input-label">
-            Email:
+            Patient's Email:
           </div>
           <div class="col-6">
             <input type="email" name="email" class="input-text" required/>
@@ -78,6 +79,17 @@
             echo '<div class="row">';
             echo '<h3 class="form-header">Step 2</h3>';
             echo '</div>';
+
+            echo '<div class="row form-row">';
+            echo '<div class="col-1 input-label">';
+            echo 'Booking ID: ';
+            echo '</div>';
+            echo '<div class="col-6 input-label" style="text-align:left;">';
+            echo $booking_id;
+            echo '<input type="hidden" id="bookingid" name="bookingid" value="'.$booking_id.'"/>';
+            echo '</div>';
+            echo '</div>';
+
             echo '<div class="row form-row">';
             echo '<div class="col-1 input-label">';
             echo 'Customer Name: ';
@@ -116,6 +128,7 @@
       ?>
 
       <form id="reschedule-form2" method="post" action="post_reschedule.php" onsubmit="return timeslotvalidate()">
+        <input type="hidden" id="bookingid" name="bookingid" value="<?php echo ($booking_id); ?>"/>
         <input type="hidden" id="customername" name="customername" value="<?php echo ($name); ?>"/>
         <div class="row">
           <h3 class="form-header">Step 3</h3>
