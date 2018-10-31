@@ -17,22 +17,23 @@
     </script>-->
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <img src="logo.png" id="logo" />
+    <div class="row">
+      <img src="logo.png" id="logo" />
+    </div>
+    <div class="row nav">
+      <div class="col-4">
+        <a href="index.html">Home</a>
       </div>
-      <div class="row nav">
-        <div class="col-4">
-          <a href="#">Home</a>
-        </div>
-        <div class="col-4" id="current-page">
-          <a href="dentist.php">Dentist</a>
-        </div>
-        <div class="col-4">
-          <a href="reschedule.php">Reschedule</a>
-        </div>
+      <div class="col-4" id="current-page">
+        <a href="dentist.php">Dentist</a>
+      </div>
+      <div class="col-4">
+        <a href="reschedule.php">Reschedule</a>
+      </div>
 
-      </div>
+    </div>
+    <div class="container">
+
       <div class="row breadcrumbs">
         <i class="fas fa-chevron-left"></i> &nbsp; <a href="dentist.php">Dentist</a>
       </div>
